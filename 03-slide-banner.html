@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/slide-banner.css">
+    <title>slide banner</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container page-index-banner-main circle-swiper-container">
+            <!-- Slider main container -->
+            <div class="circle-swiper swiper">
+                <!-- Additional required wrapper -->
+                <div class="circle-swiper-wrapper swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="circle-swiper-slide swiper-slide">
+                        <div class="circle-img">
+                            <div class="scene">
+                                <div class="scene-img">
+                                    <img src="./images/scenes/scene1/scene1-bottom.png" alt="">
+                                </div>
+                                <div class="scene-img">
+                                    <img src="./images/scenes/scene1/scene1-middle.png" alt="">
+                                </div>
+                                <div class="scene-img">
+                                    <img src="./images/scenes/scene1/scene1-top.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="circle-swiper-title">
+                            <span class="-large">KOKO</span>
+                            <span>帳戶</span>
+                        </p>
+                        <div class="circle-swiper-info">
+                            <div class="circle-swiper-info-tags">
+                                <div class="circle-swiper-info-tags-item -fill">關於KOKO</div>
+                                <div class="circle-swiper-info-tags-item">數位帳戶 便利你的生活</div>
+                            </div>
+                            <p class="circle-swiper-info-content">
+                                *2023/1/1日起，將整合數位帳戶申辦通路於「國泰世華CUBE App」，停止新申請KOKO數位存款帳戶開戶
+                            </p>
+                        </div>
+                        <a href="javascript:;" class="circle-swiper-link"></a>
+                    </div>
+                    <div class="circle-swiper-slide swiper-slide">
+                        <div class="circle-img">
+                            <div class="scene">
+                                <div class="scene-img">
+                                    <img src="./images/scenes/scene10/scene10-bottom.png" alt="">
+                                </div>
+                                <div class="scene-img">
+                                    <img src="./images/scenes/scene10/scene10-middle.png" alt="">
+                                </div>
+                                <div class="scene-img">
+                                    <img src="./images/scenes/scene10/scene10-top.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="circle-swiper-title">
+                            <span class="-large"></span>
+                            <span>人臉辨識轉帳 <br>刷臉秒轉太好用</span>
+                        </p>
+                        <div class="circle-swiper-info">
+                            <div class="circle-swiper-info-tags">
+                                <div class="circle-swiper-info-tags-item -fill">KOKO新手</div>
+                                <div class="circle-swiper-info-tags-item">人臉轉帳驗證</div>
+                            </div>
+                            <p class="circle-swiper-info-content">
+                                只要有前鏡頭即可使用，支援度超高！比對你留存本行的臉部資料，交易更安全。
+                            </p>
+                        </div>
+                        <a href="javascript:;" class="circle-swiper-link"></a>
+                    </div>
+                    <div class="circle-swiper-slide swiper-slide">
+                        <div class="circle-img">
+                            <div class="scene">
+                                <div class="scene-img">
+                                    <img src="./images/scenes/scene9/scene9-bottom.png" alt="">
+                                </div>
+                                <div class="scene-img">
+                                    <img src="./images/scenes/scene9/scene9-middle.png" alt="">
+                                </div>
+                                <div class="scene-img">
+                                    <img src="./images/scenes/scene9/scene9-top.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="circle-swiper-title">
+                            <span class="-large"></span>
+                            <span>線上換匯省時省力 <br>還享匯率優惠！ </span>
+                        </p>
+                        <div class="circle-swiper-info">
+                            <div class="circle-swiper-info-tags">
+                                <div class="circle-swiper-info-tags-item -fill">帳戶</div>
+                                <div class="circle-swiper-info-tags-item">外幣</div>
+                            </div>
+                            <p class="circle-swiper-info-content">
+                                KOKO 外幣帳戶線上換匯免出門，超美匯率趨勢圖，走勢一目瞭然
+                            </p>
+                        </div>
+                        <a href="javascript:;" class="circle-swiper-link"></a>
+                    </div>
+                </div>
+                <div class="circle-swiper-nav-prev">
+                    <div class="arrow-button -left">
+                        <img src="./images/icon/arrow-left.png" alt="">
+                    </div>
+                </div>
+                <div class="circle-swiper-nav-next">
+                    <div class="arrow-button -right">
+                        <img src="./images/icon/arrow-right.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script>
+    const swiperCircle = new Swiper('.circle-swiper', {
+        slidesPerView: 1,
+        loop: false,
+        grabCursor: true,
+        centeredSlides: true,
+        effect: "creative",
+        creativeEffect: {
+            prev: {
+                scale: 0.6,
+                shadow: false,
+                translate: ["-80%", '-30%', '-50px'],
+            },
+            next: {
+                scale: 0.6,
+                shadow: false,
+                translate: ["60%", '-30%', '-50px'],
+            },
+        },
+        // Navigation arrows
+        navigation: {
+            nextEl: '.circle-swiper-nav-next',
+            prevEl: '.circle-swiper-nav-prev',
+        },
+    });
+</script>
+
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slide mobile</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/slide-mobile.css">
+</head>
+
+<body>
+    <div class="app-slide-wrapper">
+        <div class="app-slide-infos">
+            <div class="app-slide-infos-nav">
+                <div class="app-slide-infos-nav-nums">
+                    <div class="app-slide-infos-nav-num">01</div>
+                    <div class="app-slide-infos-nav-line"></div>
+                    <div class="app-slide-infos-nav-num">02</div>
+                </div>
+                <div class="app-slide-infos-nav-next">
+                    <svg class="icon-next" width="48" height="48" viewBox="0 0 48 48"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g fill="none" fill-rule="evenodd">
+                            <path d="M16 16h16v16H16z"></path>
+                            <path
+                                d="M20 29.51c0-.181.074-.352.207-.48L25.445 24l-5.238-5.031a.66.66 0 010-.958l.5-.48a.727.727 0 01.997 0l5.986 5.75a.99.99 0 010 1.438l-5.986 5.75a.727.727 0 01-.998 0l-.5-.48a.659.659 0 01-.206-.48"
+                                fill="#474747"></path>
+                            <path class="icon-next-circle"
+                                d="M1 24C1 11.297 11.297 1 24 1s23 10.297 23 23c0 12.702-10.297 23-23 23C11.409 47 1.181 36.882 1.002 24.333"
+                                stroke="#62C3CC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                style="stroke-dashoffset: 44px;"></path>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <div class="app-slide-infos-phone-wrap">
+                <div class="app-slide-infos-phone-circle">
+                    <img class="app-slide-infos-dash-circle" src="./images/pink-dash-circle.svg" alt="">
+                    <div class="app-slide-infos-phone-circle-icon">
+                        <div class="border-circle-button">
+                            <img src="./images/icon/icons-app-face-recognition.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="app-slide-infos-phone-circle-icon">
+                        <div class="border-circle-button">
+                            <img src="./images/icon/icons-app-ko-chat.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="app-slide-infos-phone-circle-icon">
+                        <div class="border-circle-button">
+                            <img src="./images/icon/icons-app-lock.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="app-slide-infos-phone-content">
+                    <img class="-active"
+                        src="https://fastly.picsum.photos/id/167/270/560.jpg?hmac=_hJBUEYsuj-cbYD0wWNj8agFlcgOpVfs2Eu4S-WEM7Q"
+                        alt="">
+                    <img src="https://fastly.picsum.photos/id/330/270/560.jpg?hmac=B5ZsJ6zvQId-o2uBUAXQhYiVcKMCkNOm4VQjetwKR0o"
+                        alt="">
+                    <img src="https://fastly.picsum.photos/id/456/270/560.jpg?hmac=V7it7Eqi8gZCevNs4ThkSwn7oqUMVM6R7BDjb-dJ5wk"
+                        alt="">
+                </div>
+            </div>
+        </div>
+        <ul class="app-slide-lists">
+            <li class="app-slide-lists-item">
+                <div class="app-slide-lists-item-title">
+                    落葉
+                </div>
+                <div class="app-slide-lists-item-desc">
+                    我是一片小小的落葉 總是被風吹才會有自由
+                </div>
+            </li>
+            <li class="app-slide-lists-item">
+                <div class="app-slide-lists-item-title">
+                    樹木
+                </div>
+                <div class="app-slide-lists-item-desc">
+                    天に向かって　真っ直ぐに　気高くそびえる　大樹(たいじゅ)になりたい
+                </div>
+            </li>
+            <li class="app-slide-lists-item">
+                <div class="app-slide-lists-item-title">
+                    湖泊
+                </div>
+                <div class="app-slide-lists-item-desc">
+                    沒有大海的洶湧 沒有江河的流動 它平靜的 默默的 注視著世界
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="./js/jquery.min.js"></script>
+<script>
+    let timeOfAnimate = 3000;
+    // phone-circle animate
+    let dashCircle = $('.app-slide-infos-phone-circle'); // 粉紅虛線圓框
+    let circleButton = $('.border-circle-button'); // 三個粉紅色小圓icons
+    let times = 0;
+    function phoneCircleAni() {
+        times++;
+        dashCircle.css('transform', 'rotate(' + times * 120 + 'deg)');
+        circleButton.css('transform', 'rotate(-' + times * 120 + 'deg)');
+
+    }
+    //svg circle animate
+    $('.icon-next-circle').css({
+        "animation": "svgCircleAni " + timeOfAnimate / 1000 + 's infinite linear'
+    })
+    // phone content animate
+    let phoneContent = $('.app-slide-infos-phone-content img');
+    let phoneImgIdx = 0;
+
+    function phoneContentAni() {
+
+        if (phoneImgIdx >= 0) {
+            phoneImgIdx++;
+            if (phoneImgIdx >= phoneContent.length) {
+                phoneImgIdx = 0
+            }
+        }
+        phoneContent.removeClass('-active');
+        phoneContent.eq(phoneImgIdx).addClass('-active');
+
+    }
+
+    // list item & number change animate
+    let listsItem = $('.app-slide-lists-item');
+    let navNum = $('.app-slide-infos-nav-num');
+    function listItemAni(phoneImgIdx) {
+        if ($(window).width() > 1199) {
+            switch (phoneImgIdx) {
+                case 0:
+                    listsItem.eq(0).css({
+                        'transform': 'translateX(38px) translateY(100%) translateY(40px)'
+                    })
+                    listsItem.eq(1).css({
+                        'transform': 'translateY(100%) translateY(40px)'
+                    })
+                    listsItem.eq(2).css({
+                        'transform': 'translateY(100%) translateY(40px)'
+                    })
+                    navNum.eq(0).text('01')
+                    navNum.eq(1).text('02')
+                    break;
+                case 1:
+                    listsItem.eq(0).css({
+                        'transform': 'translateY(0%) translateY(0px)'
+                    })
+                    listsItem.eq(1).css({
+                        'transform': 'translateX(38px) translateY(0%) translateY(0px)'
+                    })
+                    listsItem.eq(2).css({
+                        'transform': 'translateY(0%) translateY(0px)'
+                    })
+                    navNum.eq(0).text('02')
+                    navNum.eq(1).text('03')
+                    break;
+                case 2:
+                    listsItem.eq(0).css({
+                        'transform': 'translateY(-100%) translateY(-40px)'
+                    })
+                    listsItem.eq(1).css({
+                        'transform': 'translateY(-100%) translateY(-40px)'
+                    })
+                    listsItem.eq(2).css({
+                        'transform': 'translateX(38px) translateY(-100%) translateY(-40px)'
+                    })
+                    navNum.eq(0).text('03')
+                    navNum.eq(1).text('01')
+                    break;
+            }
+        }
+
+    }
+    function listItemMobileAni(phoneImgIdx) {
+        listsItem.removeClass('-active');
+        listsItem.eq(phoneImgIdx).addClass('-active');
+    }
+    // time control
+    setInterval(function () {
+        phoneCircleAni();
+        phoneContentAni();
+        if ($(window).width() > 1199) {
+            listItemAni(phoneImgIdx);
+        } else {
+            listItemMobileAni(phoneImgIdx)
+        }
+
+        svgCircleDashoffset = 144
+
+    }, timeOfAnimate);
+
+
+</script>
+
+</html>

@@ -1,0 +1,273 @@
+.kochat-slide-content-main {
+  position: relative;
+  z-index: 1;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr) [12];
+  grid-template-columns: repeat(12, 1fr);
+  -ms-grid-rows: 170px auto;
+  grid-template-rows: 170px auto;
+  grid-gap: 0 24px;
+}
+
+.appClickSwiper {
+  position: relative;
+  z-index: 0;
+  width: 272px;
+  height: 564px;
+  -webkit-mask-image: -webkit-radial-gradient(#fff, #000);
+  overflow: hidden;
+  margin: 0 auto;
+  border-radius: 27px;
+  -webkit-box-shadow: 20px 20px 30px 0 rgba(112, 112, 112, 0.2);
+  box-shadow: 20px 20px 30px 0 rgba(112, 112, 112, 0.2);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 4;
+  grid-area: 1/5/3/9;
+}
+
+.appClickSwiper:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  border: 5px solid #474747;
+  border-radius: 27px;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 1200px) {
+  .appClickSwiper {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 5;
+    -ms-grid-column-span: 4;
+    grid-area: 1/5/3/9;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .appClickSwiper {
+    width: 240px;
+    height: 498px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .appClickSwiper {
+    width: 180px;
+    height: 374px;
+  }
+}
+
+.appClickSwiper-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.appClickSwiper-swiper-slide {
+  width: calc(100% - 0px);
+  height: calc(100% - 10px);
+}
+
+.appClickSwiper-swiper-slide img {
+  margin-top: 5px;
+  width: 100%;
+  height: 100%;
+}
+
+.kochat-content {
+  position: relative;
+  z-index: 2;
+  -ms-grid-row: 6;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 7;
+  grid-area: 6/4/9/11;
+}
+
+.kochat-content .chat-content-label {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+  color: #ef5281;
+}
+
+.kochat-content .chat-content-title {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.kochat-content .chat-content-desc {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.kochat-content .appClickSwiper-pagination {
+  bottom: auto;
+  text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.kochat-content .appClickSwiper-pagination .pagination-bullet {
+  position: relative;
+  z-index: 0;
+  width: 35px;
+  height: 35px;
+  opacity: 1;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 35px;
+  letter-spacing: 1px;
+  margin-right: 7px;
+  margin-left: 0;
+  cursor: pointer;
+  color: #979797;
+  background: transparent;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.kochat-content .appClickSwiper-pagination .pagination-bullet::before {
+  opacity: 0;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin-left: -10px;
+  background: white;
+  border-radius: 50%;
+  -webkit-box-shadow: rgba(112, 112, 112, 0.15) 10px 10px 20px 0px;
+  box-shadow: rgba(112, 112, 112, 0.15) 10px 10px 20px 0px;
+}
+
+.kochat-content .appClickSwiper-pagination .pagination-bullet:after {
+  opacity: 0;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -10px;
+  margin-left: -20px;
+  width: 20px;
+  height: 20px;
+}
+
+.kochat-content .appClickSwiper-pagination .pagination-bullet.bullet0:after {
+  background-image: url("./../images/icon/icons-app-face-recognitionb.svg");
+}
+
+.kochat-content .appClickSwiper-pagination .pagination-bullet.bullet1:after {
+  background-image: url("./../images/icon/icons-app-fidob.svg");
+}
+
+.kochat-content .appClickSwiper-pagination .pagination-bullet.bullet2:after {
+  background-image: url("./../images/icon/icons-app-koko-idb.svg");
+}
+
+.kochat-content .appClickSwiper-pagination .pagination-bullet.bullet3:after {
+  background-image: url("./../images/icon//icons-app-ko-chatb.svg");
+}
+
+.kochat-content .appClickSwiper-pagination .pagination-bullet.bullet4:after {
+  background-image: url("./../images/icon/icons-app-atmlb.svg");
+}
+
+.kochat-content .appClickSwiper-pagination .pagination-bullet.bullet5:after {
+  background-image: url("./../images/icon/icons-app-lockb.svg");
+}
+
+.kochat-content
+  .appClickSwiper-pagination
+  .pagination-bullet.swiper-pagination-bullet-active {
+  color: transparent;
+}
+
+.kochat-content
+  .appClickSwiper-pagination
+  .pagination-bullet.swiper-pagination-bullet-active::before {
+  opacity: 1;
+  -webkit-animation: truning 0.2s linear 1 forwards;
+  animation: truning 0.2s linear 1 forwards;
+}
+
+.kochat-content
+  .appClickSwiper-pagination
+  .pagination-bullet.swiper-pagination-bullet-active:after {
+  opacity: 1;
+  -webkit-animation: truning 0.2s linear 1 forwards;
+  animation: truning 0.2s linear 1 forwards;
+}
+
+@media screen and (min-width: 1200px) {
+  .kochat-content {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 9;
+    -ms-grid-column-span: 3;
+    grid-area: 2/9/3/12;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .kochat-content .chat-content-label {
+    font-size: 18px;
+  }
+  .kochat-content .chat-content-title {
+    letter-spacing: 1px;
+  }
+  .kochat-content .chat-content-desc {
+    font-size: 15px;
+  }
+}
+
+@-webkit-keyframes truning {
+  0% {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+  50% {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+  100% {
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes truning {
+  0% {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+  50% {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+  100% {
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+  }
+}
+/*# sourceMappingURL=slide-mobile-click.css.map */

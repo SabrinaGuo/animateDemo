@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabrina Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/index.css">
+
+</head>
+
+<body>
+    <h2>輪播</h2>
+    <section>
+        <div class="slide-01-wrapper"></div>
+        <div class="slide-02-wrapper" style="margin:50px 20px 10px;"></div>
+    </section>
+    <hr>
+    <h2>小特效</h2>
+    <section class="block">
+        <div>
+            <h3>小特效 1</h3>
+            <div class="heart-wrapper active">
+                <div class="leaf">
+                    <img src="https://img.lovepik.com/element/45004/5203.png_860.png" alt="">
+                </div>
+                <div class="circles"></div>
+            </div>
+        </div>
+        <div>
+            <h3>小特效 2</h3>
+            <div id="icon-mic"></div>
+        </div>
+        <div>
+            <h3>小特效 3</h3>
+            <div class="svgCover">
+                <svg class="editorial" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 24 150 28" preserveAspectRatio="none">
+                    <defs>
+                        <path id="gentle-wave" d="M-160 44c30 0 
+                  58-18 88-18s
+                  58 18 88 18 
+                  58-18 88-18 
+                  58 18 88 18
+                  v44h-352z" />
+                    </defs>
+                    <g class="parallax">
+                        <use xlink:href="#gentle-wave" x="50" y="0" fill="#68b4fc4d" />
+                        <use xlink:href="#gentle-wave" x="50" y="3" fill="#4567f3d9" />
+                        <use xlink:href="#gentle-wave" x="50" y="6" fill="#56adffcc" />
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <div>
+            <h3>小特效 4</h3>
+            <!-- 數字增加動畫 -->
+            <!-- data-animate = 控制數字動畫時間; data-init = 初始數字; data-max = 最大數字; -->
+            <ul class="number-count" data-animate="1800">
+                <li>
+                    <p><span class="numberChange" id="num1" data-init="0" data-max="15">15</span>+
+                    </p>
+                    <span class="gray-txt describe">ＡＡＡ</span>
+                </li>
+                <li>
+                    <p><span class="numberChange" id="num2" data-init="0" data-max="20">20</span>+
+                    </p>
+                    <span class="gray-txt describe">ＢＢＢ</span>
+                </li>
+                <li>
+                    <p><span class="numberChange" id="num3" data-init="50" data-max="100">100</span>+
+                    </p>
+                    <span class="gray-txt describe">ＣＣＣ</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+</body>
+<script src="./js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script>
+    $(".slide-01-wrapper").load("01-slide-mobile-click.html");
+    $(".slide-02-wrapper").load("02-slide-mobile.html");
+</script>
+<script>
+    // 數字增加動畫 start ==============================
+    var numCountAni = false; //動畫是否已播放
+    function numCount() {
+        var time = $(".number-count").data("animate");
+        $({
+            //起始值
+            countNum1: $("#num1").data("init"),
+            countNum2: $("#num2").data("init"),
+            countNum3: $("#num3").data("init"),
+        }).animate(
+            {
+                //結束值
+                countNum1: $("#num1").data("max"),
+                countNum2: $("#num2").data("max"),
+                countNum3: $("#num3").data("max"),
+            },
+            {
+                //動畫時間
+                duration: time,
+                easing: "linear",
+                step: function () {
+                    // 設置每步動畫計算的數值
+                    $("#num1").text(Math.floor(this.countNum1));
+                    $("#num2").text(Math.floor(this.countNum2));
+                    $("#num3").text(Math.floor(this.countNum3));
+                },
+                compvare: function () {
+                    // 設置動畫結束的數值
+                    $("#num1").text(this.countNum1);
+                    $("#num2").text(this.countNum2);
+                    $("#num3").text(this.countNum3);
+                },
+            }
+        );
+    }
+    //偵測滾動事件
+    $(window).scroll(function () {
+        var scrollTop = $(window).scrollTop();
+        //偵測滾動到這裡才啟動數字動畫
+        if (scrollTop > $(".number-count").offset().top - $(window).height()) {
+            if (!numCountAni) {
+                numCount();
+            }
+            numCountAni = true;
+        }
+    });
+
+</script>
+
+</html>

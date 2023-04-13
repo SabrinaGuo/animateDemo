@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/slide-mobile-click.css">
+    <title>slide mobile click</title>
+</head>
+
+<body>
+    <!-- Swiper -->
+    <div class="kochat-slide-content-main">
+        <div class="swiper appClickSwiper">
+            <div class="swiper-wrapper appClickSwiper-wrapper">
+                <div class="swiper-slide appClickSwiper-swiper-slide">
+                    <img src="https://fastly.picsum.photos/id/167/270/560.jpg?hmac=_hJBUEYsuj-cbYD0wWNj8agFlcgOpVfs2Eu4S-WEM7Q"
+                        alt="">
+                </div>
+                <div class="swiper-slide appClickSwiper-swiper-slide">
+                    <img src="https://fastly.picsum.photos/id/884/270/560.jpg?hmac=GJQ6HzEnMm0dKpfgdYietkJxEVhDKsJBCmWSYerVQoY"
+                        alt="">
+                </div>
+                <div class="swiper-slide appClickSwiper-swiper-slide">
+                    <img src="https://fastly.picsum.photos/id/330/270/560.jpg?hmac=B5ZsJ6zvQId-o2uBUAXQhYiVcKMCkNOm4VQjetwKR0o"
+                        alt="">
+                </div>
+                <div class="swiper-slide appClickSwiper-swiper-slide">
+                    <img src="https://fastly.picsum.photos/id/456/270/560.jpg?hmac=V7it7Eqi8gZCevNs4ThkSwn7oqUMVM6R7BDjb-dJ5wk"
+                        alt="">
+                </div>
+                <div class="swiper-slide appClickSwiper-swiper-slide">
+                    <img src="https://fastly.picsum.photos/id/320/270/560.jpg?hmac=EJltV33jIdMn2wsDdytcH_ih9mvSLoBWo01bcn5KbQE"
+                        alt="">
+                </div>
+                <div class="swiper-slide appClickSwiper-swiper-slide">
+                    <img src="https://fastly.picsum.photos/id/428/270/560.jpg?hmac=5iCojq9RpUJduvxMe47Y3dRZW4qqfhn1ZS4kCqVVMDE"
+                        alt="">
+                </div>
+            </div>
+        </div>
+        <div class="kochat-content">
+            <p class="chat-content-label">Label01</p>
+            <p class="chat-content-title">圖片一</p>
+            <p class="chat-content-desc">我是假字我是假字我是假字我是假字我是假字</p>
+            <div class="swiper-pagination appClickSwiper-pagination"></div>
+        </div>
+    </div>
+
+</body>
+<script src="./js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+    let introArr = [
+        { label: 'Label01', title: '圖片一', desc: '我是假字我是假字我是假字我是假字我是假字' },
+        { label: 'Label02', title: '圖片二', desc: '我是假字我是假字我是假字' },
+        { label: 'Label03', title: '圖片三', desc: '我是假字我是假字我是假字我是假字我是假字我是假字我是假字' },
+        { label: 'Label04', title: '圖片四', desc: '我是假字我是假字我是假字我是假字我是假字我是假字' },
+        { label: 'Label05', title: '圖片五', desc: '我是假字我是假字我是假字我是假字我是假字我是假字我是假字我是假字' },
+        { label: 'Label06', title: '圖片六', desc: '我是假字我是假字' }]
+
+    let labelContnet = $('.chat-content-label');
+    let titleContnet = $('.chat-content-title');
+    let descContnet = $('.chat-content-desc');
+
+    function textcontentAppSilde(idx) {
+        labelContnet.text(idx.label)
+        titleContnet.text(idx.title)
+        descContnet.text(idx.desc)
+    }
+    // initAppSilde(0)
+
+    var swiperAppClick = new Swiper(".appClickSwiper", {
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            // dynamicBullets: true,
+            clickable: true,
+            renderBullet: function (index, className) {
+                return '<div class="pagination-bullet bullet' + index + ' ' + className + '"> 0' + (index + 1) + '</div>';
+            }
+        },
+    });
+    swiperAppClick.on('slideChange', function (index) {
+        // console.log('loop:false模式:',index.activeIndex);
+        // console.log('loop:true模式:',index.realIndex);
+        textcontentAppSilde(introArr[index.realIndex])
+    });
+</script>
+
+</html>
